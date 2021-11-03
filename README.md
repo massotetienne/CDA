@@ -1,7 +1,8 @@
 #  FORMATION CDA
-Git Branch
--MAIN
- -React
-  -repo -my-first-react-app
- -Redux-React
-  -repo base-redux
+# Git Branch:
+#  -React
+    -repo: my-first-react-app
+     appli avec crud,tri,radiobox...
+#  -Redux-React
+    -repo base-redux 
+     les base de redux avec react
