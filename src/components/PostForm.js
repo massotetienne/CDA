@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 const PostForm = () => {
+  const [title , setTitle] = useState ('');
+  const [content , setContent] = useState ('');
+  const user = useSelector((state)=> state.userReducer);
   return (
     <div className="form-container">
       <form>
