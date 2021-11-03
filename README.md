@@ -4,5 +4,5 @@
     -repo: my-first-react-app
      appli avec crud,tri,radiobox...
 #  -Redux-React
-    -repo base-redux 
+    -repo Redux-React
      les base de redux avec react
