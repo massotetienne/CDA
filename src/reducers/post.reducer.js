@@ -1,4 +1,4 @@
-import { ADD_POSTS, GET_POSTS } from "../actions/post.action";
+import { ADD_POST, DELETE_POST, EDIT_POST, GET_POSTS } from "../actions/post.action";
 
 const initialState = {};
 // initialState={} etatInitial = un objets vide.
@@ -8,8 +8,20 @@ export default function postReducer(state=initialState,
         switch (action.type){
             case GET_POSTS:
                 return action.payload;
-            case ADD_POSTS:
+            case ADD_POST:
                 return [action.payload, ...state]
+            case EDIT_POST:
+                return state.map((post)=>{
+                    if (post.id === action.payload.id) {
+                        return {
+                            ...post,
+                            content: action.payload.content,
+                        }
+                    } else return post;
+                })
+            case DELETE_POST:
+                return state.filter((post)=> post.id !== action.payload.postId);
+
             default:
                 return state;
         }
