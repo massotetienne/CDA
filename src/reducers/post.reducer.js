@@ -1,6 +1,7 @@
 import { ADD_POSTS, GET_POSTS } from "../actions/post.action";
 
 const initialState = {};
+// initialState={} etatInitial = un objets vide.
 
 export default function postReducer(state=initialState,
     action){
@@ -13,3 +14,8 @@ export default function postReducer(state=initialState,
                 return state;
         }
     }
+// le reducer agit comme un filtre/middleware/routeur etc 
+// le switch (action.type) tu prend le type dans action
+// case: au cas ou c'est get_post alors retourne le payload de action
+// idem pour le add post
+// a default retourne state.
