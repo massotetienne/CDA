@@ -13,6 +13,10 @@ export const getPosts = () => {
         .catch((err) => console.log(err));
     }
 }
+// ci dessus on crée la fonction getPosts qui va demander a axios 
+// de get dans la DB .then(res) puis de rendre les data 
+// et d'aller les stocker dans le store avec dispatch qui sera de type
+//GET_POSTS , le payload  rendra les data .
 
 export const addPosts = (data) => {
     return (dispatch)=> {
@@ -24,3 +28,7 @@ export const addPosts = (data) => {
         .catch((err) => console.log(err));
     }
 }
+// pareil que la fonction au dessus mais avec la méthone ADD_POSTS
+// GET,POST,PUT,DELETE etc ...
+// ici on n'a mis ADD a la place de POST pour que ce soit plus lisible 
+// que POST_POSTS.

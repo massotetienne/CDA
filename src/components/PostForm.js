@@ -50,7 +50,7 @@ const PostForm = () => {
   );
 };
 // ici le onSubmit gere l'action de submition
-// onChange gere le changement de statut via (e) pour evenement 
+// onChange réagie au changement de statut via (e) pour evenement 
 // setTitle  a l'écoute de l'input title qui renvoie e(evenement)
 // target (l'élément ciblé) value(la valeur)
 export default PostForm;
