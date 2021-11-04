@@ -1,4 +1,4 @@
-import { ADD_POST, DELETE_POST, EDIT_POST, GET_POSTS } from "../actions/post.action";
+import { ADD_LIKE, ADD_POST, DELETE_POST, EDIT_POST, GET_POSTS } from "../actions/post.action";
 
 const initialState = {};
 // initialState={} etatInitial = un objets vide.
@@ -21,8 +21,16 @@ export default function postReducer(state=initialState,
                 })
             case DELETE_POST:
                 return state.filter((post)=> post.id !== action.payload.postId);
-
-            default:
+            case ADD_LIKE:
+                return state.map((post)=> {
+                  if (post.id === action.payload.id) {
+                      return {
+                          ...post,
+                          likes: action.payload.likes
+                      };
+                  } else return post;
+                });
+            default: 
                 return state;
         }
     }
