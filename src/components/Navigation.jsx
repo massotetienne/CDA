@@ -13,6 +13,9 @@ const Navigation = () => {
             <NavLink exact to="/a-propos"activeClassName="nav-active">
               A propos
             </NavLink>
+            <NavLink exact to="/meteo"activeClassName="nav-active">
+              Méteo
+            </NavLink>
             
         </div>
     ); 
