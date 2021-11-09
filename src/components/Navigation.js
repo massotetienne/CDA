@@ -24,8 +24,8 @@ function Navigation() {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               News
             </Typography>
-            <Button exact to="/actus" color="inherit">Home</Button>
-            <Button color="inherit">Actus</Button>
+            <Button href="/" color="inherit">Home</Button>
+            <Button href="/actus" color="inherit">Actus</Button>
           </Toolbar>
         </AppBar>
       </Box>
