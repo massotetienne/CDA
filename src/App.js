@@ -1,19 +1,23 @@
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import About from './pages/About';
+import Home from './pages/Home';
+import News from './pages/News';
+import Meteo from './pages/Meteo';
+import Notfound from './pages/Notfound';
 
-import './assets/css/App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Actus from './pages/Actus';
-
-
-function App() {
+const App = () => {
   return (
-  <BrowserRouter>
-  <Routes>
-    <Route path='/' exact element={<Home />}/>
-    <Route path='/actus' exact element={<Actus />}/>
-  </Routes>
-  </BrowserRouter>
+   <BrowserRouter>
+    <Switch>
+      <Route path="/" exact component={Home}/>
+      <Route path="/a-propos" exact component={About}/>
+      <Route path="/news"exact component={News}/>
+      <Route path="/meteo"exact component={Meteo}/>
+     <Route component={Notfound}/>
+    </Switch>
+   </BrowserRouter>
   );
-}
+};
 
 export default App;
