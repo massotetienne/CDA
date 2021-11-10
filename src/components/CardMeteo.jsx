@@ -12,7 +12,8 @@ const CardMeteo = (props) => {
             <div className="data-container">
                 <ul>
                     <li>
-                        {(dataChild.current) && dataChild.current.dt}
+                       <p> pression:{(dataChild.current) && dataChild.current.pressure}</p> 
+                       <p> humidity:{(dataChild.current) && dataChild.current.humidity}</p> 
                     </li>
                     
                 </ul>
