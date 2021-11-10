@@ -2,18 +2,19 @@
 import React from 'react';
 
 const CardMeteo = (props) => {
-    const { item, index} = props;
-    // console.log(props);
-    
+    const { dataChild, index } = props;
 
+    console.log('jbkj', dataChild, index);
+    
     return (
 
         <li className="card">
             <div className="data-container">
                 <ul>
-                    <li key={index}>{item.weather[0].icon}</li>
-                    <li key={index}>{item.weather[0].main}</li>
-                    <li key={index}>{item.wind.speed}</li>
+                    <li>
+                        {(dataChild.current) && dataChild.current.dt}
+                    </li>
+                    
                 </ul>
             </div>
         </li>

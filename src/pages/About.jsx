@@ -1,33 +1,16 @@
-import React, { useEffect } from 'react';
+
 import Logo from '../components/Logo';
 import Navigation from '../components/Navigation';
-import { store } from "../store";
 
-import { getCountry } from '../store/actions/ActionsCountry';
-import { useSelector } from "react-redux";
-import CardCountry from '../components/CardCountry';
-import { getMeteoDay } from '../store/actions/ActionsMeteo';
 
 const About = () => {
-    const ListCountries = useSelector(state => state.countries.ListCountries)
-    const listMeteo = useSelector(state => state.meteo.listMeteo)
-    useEffect(() => {
-        store.dispatch(getCountry());
-        store.dispatch(getMeteoDay());
-    }, []);
+   
     return (
         <div>
             <Navigation />
             <Logo />
             <h1> A propos</h1>
             <br />
-            {(ListCountries.length > 0) && ListCountries.map((item, key1) => {
-                return <CardCountry kakawait={item} key={key1} />
-            })}
-            {(listMeteo.length > 0) && listMeteo.map((item, index) => {
-                console.log('test', item.weather[0].main)
-                return <CardCountry item={item} key={index} />
-            })}
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat illo odio eius harum alias,
                 error repudiandae vero iusto illum expedita quod ipsum facere saepe enim cumque cum pariatur
                 omnis odit voluptate consectetur similique minima obcaecati et dolorum. Omnis fugiat deserunt

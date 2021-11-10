@@ -11,19 +11,21 @@ import CardMeteo from "../components/CardMeteo";
 
 const Meteo = () => {
   const listMeteo = useSelector(state => state.meteo.listMeteo)
+
   useEffect(() => {
     store.dispatch(getMeteoDay());
   }, []);
+
+  console.log('data2', listMeteo);
 
   return (
     <div>
       <Logo />
       <Navigation />
       <h1>Meteo</h1>
-      {(listMeteo.length > 0) && listMeteo.map((item, index) => {
-        // console.log('test', item.weather[0].main)
-        return <CardMeteo item={item} key={index} />
-      })}
+      <ul>
+          <CardMeteo dataChild={listMeteo} key={listMeteo.dt} />
+      </ul>
     </div>
   );
 };
