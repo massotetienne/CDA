@@ -2,7 +2,7 @@ const dateFormat = require('dateformat');
 const Article = require('../../DataBase/Models/Article');
 
 exports.get = async (req, res) => {
-  console.log('getall')
+  console.log('getArticle Fonctionne !')
   await Article.find({})
     .exec((err, data) => {
       res.json(data);
@@ -12,19 +12,19 @@ exports.post = async (req, res) => {
   const dbArticle = await Article.find({})
 
   console.log('createArticle', req.body)
-  // console.log(req.file)
+  console.log(req.file)
 
-  // Article.create({
+  Article.create({
 
-  //     ...req.body,
-  //     dateCreateDB: dateFormat(new Date(), "dd/mm/yyyy à HH:MM")
-  //   },
+      ...req.body,
+      dateCreateDB: dateFormat(new Date(), "dd/mm/yyyy à HH:MM")
+    },
 
-  //   (err) => {
-  //     if (err) console.log(err)
-  //     res.json(dbArticle);
-  //   })
-  res.send('sushi')
+    (err) => {
+      if (err) console.log(err)
+      res.json(dbArticle);
+    })
+  // res.send('sushi')
 }
 
 

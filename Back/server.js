@@ -75,7 +75,7 @@ app.use(bodyParser.urlencoded({
 
 // ROUTER
 const ROUTER = require('./Controllers/routeur')
-app.use('/api', ROUTER)
+app.use(ROUTER)
 
 // Page Err 404
 // app.use((req, res) => {

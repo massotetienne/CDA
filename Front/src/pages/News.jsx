@@ -7,8 +7,8 @@ import Article from "../components/Article";
 
 const News = () => {
     const [newsData, setNewsData] = useState([]);
-    const [author, setAuthor] = useState("");
-    const [content, setContent] = useState("")
+    const [name, setName] = useState("");
+    const [text, setText] = useState("")
     const [error, setError] = useState(false);
 
     useEffect(() => {
@@ -22,20 +22,20 @@ const News = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (content.length < 140) {
+        if (text.length < 140) {
             setError(true);
 
         } else {
 
 
             axios.post('http://localhost:3004/article', {
-                author,
-                content,
+                name,
+                text,
                 date: Date.now(),
             }).then(() => {
                 setError(false)
-                setAuthor("");
-                setContent("");
+                setName("");
+                setText("");
                 getArticle();
             })
         }
@@ -48,18 +48,18 @@ const News = () => {
             <h1>News</h1>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <input onChange={
-                    (e) => setAuthor(e.target.value)}
+                    (e) => setName(e.target.value)}
                     type="text" placeholder="Nom"
-                    value={author} />
+                    value={name} />
                 {/* (e): evenement listener
      onChange : quand changement
      setAuthor : la const stoké plus haut 
      e.target.value : tu cible la valeur de la cible (target) */}
                 <textarea
                     style={{border : error ? "1px solid red" : "1px solid #61dafb"}}
-                    onChange={(e) => setContent(e.target.value)}
+                    onChange={(e) => setText(e.target.value)}
                     placeholder="Message"
-                    value={content}>
+                    value={text}>
                     </textarea>
                     {error && <p>Veuillez écrire un minimum de 140 caractères</p>}
 
