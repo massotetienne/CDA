@@ -5,11 +5,11 @@ const
 // Import Controller messages
 const ArticleController = require ('./Controller/ArticleController')
 router.route('/article/get')
-    .get(ArticleController.get)
+    .get(ArticleController.getArticle)
 router.route('/article')
-    .post(ArticleController.post)
-// router.route('/message/delete/:id')
-//     .get(messageController.deleteOne)
+    .post(ArticleController.postArticle)
+router.route('/article/delete/:id')
+    .get(ArticleController.deleteOne)
   
 
 
