@@ -2,7 +2,7 @@ const
   express = require('express'),
   router = express.Router()
 
-// Import Controller messages
+// Import Controller article
 const ArticleController = require ('./Controller/ArticleController')
 router.route('/article/get')
     .get(ArticleController.getArticle)
