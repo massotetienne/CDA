@@ -4,7 +4,7 @@ import DeleteArticle from './DeleteArticle';
 
 const Article = ({ article }) => {
     const [isEditing, setIsEditing] = useState(false);
-    const [editContent, setEditContent] = useState("");
+    const [editText, setEditText] = useState("");
 
     const dateParser = (date) => {
         let newDate = new Date(date).toLocaleDateString('fr-FR', {
@@ -22,12 +22,12 @@ const Article = ({ article }) => {
     const handleEdit = () => {
 
         const data = {
-            author: article.author,
-            content: editContent ? editContent : article.content,
+            name: article.name,
+            text: editText ? editText : article.text,
             date: article.date,
         }
 
-        axios.put('http://localhost:3003/articles/' + article.id, data)
+        axios.put('http://localhost:3004/articles/update' + article.id, data)
             .then(() => {
                 setIsEditing(false);
             })
@@ -42,10 +42,10 @@ const Article = ({ article }) => {
             </div>
             {isEditing ? (
                 <textarea
-                    onChange={(e) => setEditContent(e.target.value)}
-                    autoFocus defaultValue={editContent ? editContent : article.content}></textarea>
+                    onChange={(e) => setEditText(e.target.value)}
+                    autoFocus defaultValue={editText ? editText : article.text}></textarea>
             ) : (
-                    <p>{editContent ? editContent : article.text}</p>
+                    <p>{editText ? editText : article.text}</p>
                 )}
             <div className="btn-container">
                 {isEditing ? (

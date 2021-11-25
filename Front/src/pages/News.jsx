@@ -15,10 +15,10 @@ const News = () => {
         getArticle();
     }, []);
 
-    const getArticle = () => {
+    const getArticle = () => {  
         axios.get('http://localhost:3004/article/get')
-            .then((res) => setNewsData(res.data));
-    };
+            .then((res) => setNewsData(res.data));     
+    }; 
 
     const handleSubmit = (e) => {
         e.preventDefault();
