@@ -2,15 +2,17 @@ const
   express = require('express'),
   router = express.Router()
 
-// Import Controller messages
+// Import Controller article
 const ArticleController = require ('./Controller/ArticleController')
-const DeleteArticleController = require('./Controller/DeleteArticleController')
 router.route('/article/get')
-    .get(ArticleController.get)
+    .get(ArticleController.getArticle)
 router.route('/article')
-    .post(ArticleController.post)
+    .post(ArticleController.postArticle)
 router.route('/article/delete/:id')
-    .delete(DeleteArticleController.deleteOne)
+    .get(ArticleController.deleteOne)
+    // voir avec Morgahn pourquoi .delete ne focntionne pas et .get oui.
+router.route('/article/update/:id')
+    .put(ArticleController.editOne)
   
 
 
