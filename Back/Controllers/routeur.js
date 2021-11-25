@@ -10,6 +10,9 @@ router.route('/article')
     .post(ArticleController.postArticle)
 router.route('/article/delete/:id')
     .get(ArticleController.deleteOne)
+    // voir avec Morgahn pourquoi .delete ne focntionne pas et .get oui.
+router.route('/article/update/:id')
+    .put(ArticleController.editOne)
   
 
 
