@@ -10,7 +10,7 @@ router.route('/article/get')
 router.route('/article')
     .post(ArticleController.post)
 router.route('/article/delete/:id')
-    .get(DeleteArticleController.deleteOne)
+    .delete(DeleteArticleController.deleteOne)
   
 
 
