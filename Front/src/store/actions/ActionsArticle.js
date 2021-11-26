@@ -2,7 +2,7 @@
 
 // Import de module
 import axios from "axios";
-import { GET_ARTICLE } from './ActionTypes'
+import { GET_ARTICLE , ADD_ARTICLE } from './ActionTypes'
 
 // Get ListCountry
 export const getArticle = () => {
@@ -17,3 +17,16 @@ export const getArticle = () => {
     }
 
 };
+// Add Article
+export const addArticle = (data) => {
+    console.log('addArticle', data)
+    return (dispatch) => {
+      return axios
+        .post("http://localhost:3004/article", data)
+        .then((res) => {
+          console.log("postArticle", res.data);
+          dispatch({ type: ADD_ARTICLE, payload: res.data.message });
+        })
+        .catch((err) => console.log(err));
+    };
+  };

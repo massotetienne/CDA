@@ -1,24 +1,19 @@
 
 import Logo from "../components/Logo";
 import Navigation from "../components/Navigation";
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Article from "../components/Article";
+import { store } from "../store";
+import { useSelector } from "react-redux";
+import {addArticle, getArticle} from "../store/actions/ActionsArticle"
 
 const News = () => {
-    const [newsData, setNewsData] = useState([]);
     const [name, setName] = useState("");
     const [text, setText] = useState("")
     const [error, setError] = useState(false);
-
-    useEffect(() => {
-        getArticle();
-    }, []);
-
-    const getArticle = () => {
-        axios.get('http://localhost:3004/article/get')
-            .then((res) => setNewsData(res.data));
-    };
+    
+    
+    const listNews = useSelector(state => state.article.newsData)
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -26,20 +21,15 @@ const News = () => {
             setError(true);
 
         } else {
-
-
-            axios.post('http://localhost:3004/article', {
+            store.dispatch(addArticle({
                 name,
                 text,
                 date: Date.now(),
-                
-            })
-            .then(() => {
-                setError(false)
-                setName("");
-                setText("");
-                // getArticle();
-            })
+              }))
+              store.dispatch(getArticle())
+              setName("")
+              setText("")
+
         }window.location.reload();
     };
 
@@ -67,7 +57,8 @@ const News = () => {
 
                 <input type="submit" value="Envoyer" />
             </form>
-            <ul>{newsData
+            <ul>
+            {(listNews.length > 0) && listNews
                 .sort((a, b) => b.date - a.date)
                 .map((article) => (
                     <Article key={article._id} article={article} />

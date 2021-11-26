@@ -8,6 +8,10 @@ import App from './App';
 import "./styles/index.scss";
 
 
+// actions
+import { getArticle } from './store/actions/ActionsArticle'
+store.dispatch(getArticle())
+
 render(
   <Provider store={store}>
     <React.StrictMode>
