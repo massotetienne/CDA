@@ -43,10 +43,11 @@ exports.deleteOne = async (req, res) => {
     _id: req.params.id,
     // ici nous avons un callback err
   }, (err) => {
-    // Si nous avons pas d'erreur alors on redirige
-    if (!err) return res.redirect('http://localhost:3000/news')
-    // Sinon on renvoit l'err
-    else res.send(err)
+    // // Si nous avons pas d'erreur alors on redirige
+    // if (!err) return res.redirect('http://localhost:3000')
+    // // Sinon on renvoit l'err
+    // else 
+    res.send(err)
   })
 }
 
@@ -57,21 +58,11 @@ exports.editOne = (req, res) => {
   Article.findByIdAndUpdate(req.params.id, {
       ...req.body
     },
-
-
-    //  res.json({ message: "Item editer avec success !" })
-
-
     (err, data) => {
       if (err) throw err;
       res.json({
         message: "comment cree avec success !"
       });
-      // });
-      // res.json({
-      //   message: "Item editer avec success !"
-      // });
-      //VOIR AVEC Morghan : ci dessus erreur double requete ca plante nodeJS
     }
   )
 }

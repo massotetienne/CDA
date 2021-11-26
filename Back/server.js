@@ -29,11 +29,9 @@ app.use((req, res, next) => {
 })
 
 // Cors
-// app.use(cors({
-//   origin: ['http://localhost:8080'],
-//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//   credentials: true
-// }))
+app.use(cors({
+ 
+}))
 
 // app.use
 app.use(express.static('assets'))

@@ -22,12 +22,12 @@ const Article = ({ article }) => {
     const handleEdit = () => {
 
         const data = {
-            author: article.author,
-            content: editContent ? editContent : article.content,
+            name: article.name,
+            text: editContent ? editContent : article.text,
             date: article.date,
         }
 
-        axios.put('http://localhost:3003/articles/' + article.id, data)
+        axios.put('http://localhost:3004/article/update/' + article._id, data)
             .then(() => {
                 setIsEditing(false);
             })
@@ -43,7 +43,7 @@ const Article = ({ article }) => {
             {isEditing ? (
                 <textarea
                     onChange={(e) => setEditContent(e.target.value)}
-                    autoFocus defaultValue={editContent ? editContent : article.content}></textarea>
+                    autoFocus defaultValue={editContent ? editContent : article.text}></textarea>
             ) : (
                     <p>{editContent ? editContent : article.text}</p>
                 )}
@@ -53,7 +53,7 @@ const Article = ({ article }) => {
                 ) : (
                         <button onClick={() => setIsEditing(true)}>Edit</button>
                     )}
-                <DeleteArticle id={article.id}/>
+                <DeleteArticle id={article._id}/>
             </div>
         </div>
     );

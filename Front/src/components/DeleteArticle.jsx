@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const DeleteArticle = ({ id }) => {
     const handleDelete = () => {
-        axios.delete ('http://localhost:3004/article/delete' + id);
+        axios.delete ('http://localhost:3004/article/delete/' + id);
         window.location.reload();
     };
 
