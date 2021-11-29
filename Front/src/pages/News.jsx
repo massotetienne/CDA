@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Article from "../components/Article";
 import { store } from "../store";
 import { useSelector } from "react-redux";
-import {addArticle, getArticle} from "../store/actions/ActionsArticle"
+import { postArticle, getArticle } from "../store/actions/ActionsArticle"
 
 const News = () => {
     const [name, setName] = useState("");
@@ -21,7 +21,7 @@ const News = () => {
             setError(true);
 
         } else {
-            store.dispatch(addArticle({
+            store.dispatch(postArticle({
                 name,
                 text,
                 date: Date.now(),
@@ -30,7 +30,7 @@ const News = () => {
               setName("")
               setText("")
 
-        }window.location.reload();
+        }
     };
 
     return (

@@ -1,22 +1,25 @@
 import React from 'react';
-import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { delArticle } from '../store/actions/ActionsArticle';
 
 const DeleteArticle = ({ id }) => {
+    const dispatch = useDispatch()
+
     const handleDelete = () => {
-        axios.delete ('http://localhost:3004/article/delete/' + id);
-        window.location.reload();
+        // axios.delete ('http://localhost:3004/article/delete/' + id);
+        console.log(id);
+        // window.location.reload();
+        dispatch(delArticle(id))
     };
 
     return (
-            <button 
-            onClick = {() =>{
-             if(window.confirm("Voulez vous supprimer cet article ?")) {
-                 handleDelete();
-             }
+        <button
+            onClick={() => {
+                if (window.confirm("Voulez vous supprimer cet article ?")) {
+                    handleDelete();
+                }
             }}
-            >
-            Supprimer
-            </button>
+        > Supprimer </button>
     );
 };
 

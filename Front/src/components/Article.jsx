@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { putArticle } from '../store/actions/ActionsArticle';
 import DeleteArticle from './DeleteArticle';
+import { store } from "../store";
 
 const Article = ({ article }) => {
     const [isEditing, setIsEditing] = useState(false);
@@ -18,19 +19,25 @@ const Article = ({ article }) => {
 
         return newDate;
     };
-
+    
+    
     const handleEdit = () => {
+        console.log('put article', editContent, article)
 
-        const data = {
-            name: article.name,
-            text: editContent ? editContent : article.text,
-            date: article.date,
-        }
-
-        axios.put('http://localhost:3004/article/update/' + article._id, data)
-            .then(() => {
-                setIsEditing(false);
-            })
+        store.dispatch(putArticle(article._id, {
+            text: editContent
+        }))
+        setIsEditing(false);
+        // const data = {
+        //     name: article.name,
+        //     text: editContent ? editContent : article.text,
+        //     date: article.date,
+        // }
+     
+        // axios.put('http://localhost:3004/article/update/' + article._id, data)
+        //     .then(() => {
+        //         setIsEditing(false);
+        //     })
     }
 
     return (

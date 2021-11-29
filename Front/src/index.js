@@ -12,6 +12,7 @@ import "./styles/index.scss";
 import { getArticle } from './store/actions/ActionsArticle'
 store.dispatch(getArticle())
 
+
 render(
   <Provider store={store}>
     <React.StrictMode>
