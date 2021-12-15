@@ -11,10 +11,10 @@ const App = () => {
    <HashRouter>
     <Routes>
       <Route path="/" exact element={<Home/>}/>
-      <Route path="/a-propos" exact component={<About/>}/>
-      <Route path="/news"exact component={<News/>}/>
-      <Route path="/meteo"exact component={<Meteo/>}/>
-     <Route component={<Notfound/>}/>
+      <Route path="/a-propos" exact element={<About/>}/>
+      <Route path="/news"exact element={<News/>}/>
+      <Route path="/meteo"exact element={<Meteo/>}/>
+     <Route element={<Notfound/>}/>
     </Routes>
    </HashRouter>
   );

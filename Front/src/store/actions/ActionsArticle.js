@@ -8,7 +8,7 @@ import { GET_ARTICLE, POST_ARTICLE, PUT_ARTICLE, DELETE_ARTICLE } from './Action
 export const getArticle = () => {
   return (dispatch) => {
     return axios
-      .get("http://localhost:3004/article/get")
+      .get("http://192.168.1.70:3004/api/article/get")
       .then((res) => {
         console.log("Get art", res.data);
         dispatch({ type: GET_ARTICLE, payload: res.data })
@@ -22,7 +22,7 @@ export const postArticle = (data) => {
   console.log('addArticle', data)
   return (dispatch) => {
     return axios
-      .post("http://localhost:3004/article", data)
+      .post("http://192.168.1.70:3004/api/article", data)
       .then((res) => {
         console.log("postArticle", res.data);
         dispatch({ type: POST_ARTICLE, payload: res.data.dbArticle });
@@ -37,7 +37,7 @@ export const putArticle = (id, data) => {
   console.log('putArticle', data)
   return (dispatch) => {
     return axios
-      .put(`http://localhost:3004/article/update/${id}`, data)
+      .put(`http://192.168.1.70:3004/api/article/update/${id}`, data)
       .then((res) => {
         console.log("putArticle", res.data);
         dispatch({
@@ -54,7 +54,7 @@ export const delArticle = (id) => {
   console.log('actiondel', id);
   return (dispatch) => {
     return axios
-      .delete(`http://localhost:3004/article/delete/${id}`)
+      .delete(`http://192.168.1.70:3004/api/article/delete/${id}`)
       .then((res) => {
         console.log("Delete Article", res.data.dbArticle)
         dispatch({
